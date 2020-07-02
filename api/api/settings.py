@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     # own
     'proverbs',
     # third-party
-    'rest_framework'
+    'rest_framework',
+    'django_elasticsearch_dsl',
+    'django_elasticsearch_dsl_drf'
 ]
 
 MIDDLEWARE = [
@@ -123,10 +125,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Rest Framework
+# Elasticsearch
 
-REST_FRAMEWORK = {
-    # When you enable API versioning, the request.version attribute will contain a string
-    # that corresponds to the version requested in the incoming client request.
-    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'localhost:9200'
+    },
 }
